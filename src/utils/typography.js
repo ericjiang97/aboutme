@@ -1,7 +1,7 @@
 import Typography from 'typography'
 
 const typography = new Typography({
-  baseFontSize: '18px',
+  baseFontSize: '14px',
   baseLineHeight: 1.45,
   headerFontFamily: [
     'Merriweather',
@@ -13,6 +13,7 @@ const typography = new Typography({
     'sans-serif',
   ],
   bodyFontFamily: ['Poppins', 'sans-serif', 'serif'],
+  bodyWeight: 300,
   googleFonts: [
     {
       name: 'Merriweather',
@@ -20,7 +21,7 @@ const typography = new Typography({
     },
     {
       name: 'Poppins',
-      styles: ['400', '400i', '700', '700i'],
+      styles: ['300', '400', '400i', '700', '700i'],
     },
   ],
 })
