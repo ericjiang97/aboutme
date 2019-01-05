@@ -5,6 +5,7 @@ import Layout from '../components/layout'
 import Image from '../components/image'
 import SEO from '../components/seo'
 import currentRoles from '../data/current.json'
+import previousRoles from '../data/previously.json'
 import IntroComponent from '../components/intro'
 import Job from '../components/Job'
 
@@ -66,7 +67,7 @@ const IndexPage = () => (
         </div>
       }
     >
-      <h2 style={SummaryHeadingStyle}>Current</h2>
+      <h2 style={SummaryHeadingStyle}>Currently</h2>
       {currentRoles.map((role, key) => {
         console.log(role)
         return (
@@ -83,9 +84,27 @@ const IndexPage = () => (
           </div>
         )
       })}
-    </IntroComponent>
-    <IntroComponent globalStyle={{ padding: 10 }} sidebar={<div />}>
-      <h2 style={SummaryHeadingStyle}>Previous</h2>
+      <h2 style={SummaryHeadingStyle}>Previously...</h2>
+      {previousRoles.length == 0 ? (
+        <span>No previous roles</span>
+      ) : (
+        previousRoles.map((role, key) => {
+          console.log(role)
+          return (
+            <div key={key}>
+              <Job
+                url={role.companyURL}
+                name={role.companyName}
+                fromMonth={role.fromMonth}
+                toMonth={role.toMonth}
+                jobTitle={role.jobTitle}
+                shortDescrip={role.shortDescrip}
+              />
+              <hr style={{ color: '#435a6f' }} />
+            </div>
+          )
+        })
+      )}
     </IntroComponent>
   </Layout>
 )
