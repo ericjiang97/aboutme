@@ -4,10 +4,14 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import Image from '../components/image'
 import SEO from '../components/seo'
+import Job from '../components/Job'
+import Project from '../components/Project'
+import IntroComponent from '../components/intro'
+
 import currentRoles from '../data/current.json'
 import previousRoles from '../data/previously.json'
-import IntroComponent from '../components/intro'
-import Job from '../components/Job'
+import projects from '../data/projects'
+import ProjectComponent from '../components/Project'
 
 const SummaryHeadingStyle = {
   fontFamily: 'Poppins',
@@ -104,6 +108,48 @@ const IndexPage = () => (
             </div>
           )
         })
+      )}
+    </IntroComponent>
+    <IntroComponent
+      globalStyle={{ padding: 10 }}
+      sidebar={
+        <div>
+          <h1
+            style={{
+              fontFamily: 'Merriweather',
+              fontWeight: 600,
+            }}
+          >
+            Projects
+          </h1>
+        </div>
+      }
+    >
+      <h2 style={SummaryHeadingStyle}>What I've worked on...</h2>
+      {projects.map(
+        (
+          {
+            projectName,
+            projectURL,
+            fromMonth,
+            toMonth,
+            shortDescrip,
+            screenshotUrl,
+          },
+          key
+        ) => {
+          return (
+            <ProjectComponent
+              projectName={projectName}
+              projectURL={projectURL}
+              fromMonth={fromMonth}
+              toMonth={toMonth}
+              shortDescrip={shortDescrip}
+              key={key}
+              photoUrl={screenshotUrl}
+            />
+          )
+        }
       )}
     </IntroComponent>
   </Layout>
