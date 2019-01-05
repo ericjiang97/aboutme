@@ -7,6 +7,12 @@ import SEO from '../components/seo'
 import currentRoles from '../data/current.json'
 import IntroComponent from '../components/intro'
 import Job from '../components/Job'
+
+const SummaryHeadingStyle = {
+  fontFamily: 'Poppins',
+  fontWeight: 600,
+}
+
 const IndexPage = () => (
   <Layout>
     <SEO
@@ -49,25 +55,18 @@ const IndexPage = () => (
       globalStyle={{ backgroundColor: '#FFE400', padding: 10 }}
       sidebar={
         <div>
-          <h2
+          <h1
             style={{
               fontFamily: 'Merriweather',
               fontWeight: 600,
             }}
           >
             Experience
-          </h2>
+          </h1>
         </div>
       }
     >
-      <h3
-        style={{
-          fontFamily: 'Merriweather',
-          fontWeight: 600,
-        }}
-      >
-        Current
-      </h3>
+      <h2 style={SummaryHeadingStyle}>Current</h2>
       {currentRoles.map((role, key) => {
         console.log(role)
         return (
@@ -80,31 +79,13 @@ const IndexPage = () => (
               jobTitle={role.jobTitle}
               shortDescrip={role.shortDescrip}
             />
+            <hr style={{ color: '#435a6f' }} />
           </div>
         )
       })}
     </IntroComponent>
-    <IntroComponent
-      globalStyle={{ backgroundColor: '#FF652F', padding: 10 }}
-      sidebar={
-        <div>
-          <h2
-            style={{
-              fontFamily: 'Merriweather',
-              fontWeight: 600,
-            }}
-          >
-            Experience
-          </h2>
-        </div>
-      }
-    >
-      <h3
-        style={{
-          fontFamily: 'Merriweather',
-          fontWeight: 600,
-        }}
-      />
+    <IntroComponent globalStyle={{ padding: 10 }} sidebar={<div />}>
+      <h2 style={SummaryHeadingStyle}>Previous</h2>
     </IntroComponent>
   </Layout>
 )

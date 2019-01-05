@@ -8,14 +8,42 @@ const style = {
   marginBottom: 5,
 }
 
-const JobHeader = ({ name, url, fromMonth, toMonth }) => {
+const JobHeader = ({ name, url, fromMonth, toMonth, jobTitle }) => {
   return (
-    <h4 style={style}>
-      {url ? <a href={url}>{name}</a> : <span>{name}</span>} |{' '}
-      <span>
-        {fromMonth} - {toMonth ? toMonth : 'Present'}
-      </span>
-    </h4>
+    <div>
+      <h2>{jobTitle} at </h2>
+      <h3
+        style={{
+          fontFamily: ['Poppins'],
+          fontWeight: 300,
+        }}
+      >
+        <span>
+          {url ? (
+            <a
+              href={url}
+              target="_blank"
+              style={{
+                color: '#435a6f',
+                textDecoration: 'none',
+                ':hover': {
+                  color: '#435a6f',
+                },
+              }}
+            >
+              {name}
+            </a>
+          ) : (
+            <span>{name}</span>
+          )}
+        </span>
+      </h3>
+      <h4 style={style}>
+        <span>
+          {fromMonth} - {toMonth ? toMonth : 'Present'}
+        </span>
+      </h4>
+    </div>
   )
 }
 
@@ -24,6 +52,7 @@ JobHeader.propTypes = {
   url: PropType.string,
   fromMonth: PropType.string.isRequired,
   toMonth: PropType.string,
+  jobTitle: PropType.string.isRequired,
 }
 
 export default JobHeader

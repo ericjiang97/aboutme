@@ -14,6 +14,7 @@ const typography = new Typography({
   ],
   bodyFontFamily: ['Poppins', 'sans-serif', 'serif'],
   bodyWeight: 300,
+  headerColor: '#435a6f',
   googleFonts: [
     {
       name: 'Merriweather',
